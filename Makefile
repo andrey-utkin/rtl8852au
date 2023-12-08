@@ -19,7 +19,7 @@ GCC_VER_49 := $(shell echo `$(CC) -dumpversion | cut -f1-2 -d.` \>= 4.9 | bc )
 
 EXTRA_CFLAGS += -I$(src)/include
 
-EXTRA_LDFLAGS += --strip-debug
+#EXTRA_LDFLAGS += --strip-debug
 
 CONFIG_AUTOCFG_CP = n
 
@@ -642,7 +642,8 @@ modules:
 	#cp Module.symvers .symvers.$(MODULE_NAME)
 
 strip:
-	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
+	#$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
+	true
 
 install:
 	@mkdir -p $(MODDESTDIR)realtek/rtw89/
